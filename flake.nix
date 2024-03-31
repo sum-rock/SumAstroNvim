@@ -72,12 +72,12 @@
                   cfg.nodePackage
                   rustup # Must run `rustup default stable`
                 ];
-                fonts = pkgs.lib.mkIf (config.system == "x86_64-linux") {
-                  packages = with pkgs; [
-                    (nerdfonts.override { fonts = [ cfg.nerdfont ]; })
-                    font-awesome
-                  ];
-                };
+                # fonts = pkgs.lib.mkIf (config.system == "x86_64-linux") {
+                #   packages = with pkgs; [
+                #     (nerdfonts.override { fonts = [ cfg.nerdfont ]; })
+                #     font-awesome
+                #   ];
+                # };
                 home-manager.users.${cfg.username}.xdg.configFile = {
                   "nvim/" = {
                     source = "${src}";
