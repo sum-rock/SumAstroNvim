@@ -9,10 +9,9 @@
       lazygit
       gdu
       bottom
-      # LSPs 
-      lua53Packages.lua-lsp
-      stylua
       # LSP dependencies
+      lua
+      stylua
       config.sumAstroNvim.pythonPackage
       config.sumAstroNvim.nodePackage
       ruff
