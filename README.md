@@ -1,34 +1,56 @@
-# AstroNvim Template
+# Sum Rock's AstroNvim Implementation
 
-**NOTE:** This is for AstroNvim v4+
+This is an implementation of the [AstroNvim](https://astronvim.com/)
+configuration/plugin distribution for Neovim using Nix flakes. The flake contains both a
+NixOS and NixDarwin module which allows for easy adaptation and installation. The flake
+is not intended to be highly configurable, it was instead designed to allow me to easily
+port my highly configured Neovim setup to other machines.
 
-A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+## Installation
 
-## 🛠️ Installation
+A very minimal installation in a typical nix flake would look as follows:
 
-#### Make a backup of your current nvim and shared folder
+`flake.nix`
 
-```shell
-mv ~/.config/nvim ~/.config/nvim.bak
-mv ~/.local/share/nvim ~/.local/share/nvim.bak
-mv ~/.local/state/nvim ~/.local/state/nvim.bak
-mv ~/.cache/nvim ~/.cache/nvim.bak
+```nix
+{
+  description = "My NixOS configuration";
+  inputs = {
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-23.11";
+    };
+    sum-astro-nvim = {
+      url = "github:sum-rock/SumAstroNvim/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+  outputs = { self, nixpkgs, sum-astro-nvim }:
+  {
+    nixosConfigurations = {
+      "my-hostname" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          sum-astro-nvim.nixosModules.astroNvim
+        ];
+      };
+    };
+  };
+}
 ```
 
-#### Create a new user repository from this template
+`configuration.nix`
 
-Press the "Use this template" button above to create a new repository to store your user configuration.
+```nix
+{ config, pkgs, ...}:
+{
+  sumAstroNvim = {
+    username = "sumrock";
+    nerdfont = "FiraCode";
+    nodePackage = pkgs.nodejs_20;
+    pythonPackage = pkgs.python311Full;
+  };
 
-You can also just clone this repository directly if you do not want to track your user configuration in GitHub.
-
-#### Clone the repository
-
-```shell
-git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
-```
-
-#### Start Neovim
-
-```shell
-nvim
+  # Everything else required to configure your machine...
+}
 ```
