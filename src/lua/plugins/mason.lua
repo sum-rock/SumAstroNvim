@@ -11,6 +11,7 @@ return {
         "pyright",
         "eslint",
         "rnix",
+        "gopls",
         -- add more arguments for adding more language servers
       })
     end,
@@ -25,6 +26,7 @@ return {
         "prettier",
         "stylua",
         "black",
+        "ruff",
         -- add more arguments for adding more null-ls sources
       })
     end,

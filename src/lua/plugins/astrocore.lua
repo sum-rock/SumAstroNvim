@@ -24,9 +24,10 @@ return {
       opt = { -- vim.opt.<key>
         relativenumber = true,
         number = true,
-        spell = false,
+        spell = true,
         signcolumn = "auto",
         wrap = false,
+        textwidth = 88,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
