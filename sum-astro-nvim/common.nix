@@ -13,7 +13,9 @@
       lua53Packages.lua-lsp
       stylua
       # LSP dependencies
+      config.sumAstroNvim.pythonPackage
       config.sumAstroNvim.nodePackage
+      ruff
       rustup # Must run `rustup default stable`
     ];
     home-manager.users.${config.sumAstroNvim.username}.xdg.configFile = {
