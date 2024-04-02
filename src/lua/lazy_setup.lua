@@ -7,7 +7,7 @@ require("lazy").setup({
       mapleader = " ",
       maplocalleader = ",",
       icons_enabled = true,
-      pin_plugins = true,
+      pin_plugins = nil, -- defaults to true but if explicit, NVIM will OME
     },
   },
   { import = "community" },
