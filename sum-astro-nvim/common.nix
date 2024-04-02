@@ -10,11 +10,11 @@
       gdu
       bottom
       # LSP dependencies
-      lua
       stylua
+      selene
+      ruff
       config.sumAstroNvim.pythonPackage
       config.sumAstroNvim.nodePackage
-      ruff
       rustup # Must run `rustup default stable`
     ];
     home-manager.users.${config.sumAstroNvim.username}.xdg.configFile = {
