@@ -2,8 +2,8 @@ name: update-flake-lock
 on:
   workflow_dispatch: # allows manual triggering
   schedule:
-    # Github is UTC. This is midnight-ish (stupid daylight savings time)
-    - cron: "30 6 * * 4"
+    # Github is UTC. Midnight on Saturday
+    - cron: "0 6 * * 6"
 
 jobs:
   lockfile:
