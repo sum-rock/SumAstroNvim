@@ -8,7 +8,7 @@ return {
     -- Configure core features of AstroNvim
     features = {
       large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
-      autopairs = true,
+      autopairs = false,
       cmp = true,
       diagnostics_mode = 3,
       highlighturl = true,
@@ -22,12 +22,13 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = true,
+        relativenumber = false,
         number = true,
         spell = true,
         signcolumn = "auto",
         wrap = false,
         textwidth = 88,
+        formatoptions = "cro/qaj",
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
