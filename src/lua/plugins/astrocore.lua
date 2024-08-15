@@ -28,7 +28,7 @@ return {
         signcolumn = "auto",
         wrap = false,
         textwidth = 88,
-        formatoptions = "cro/qaj",
+        formatoptions = "ro/qj",
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
