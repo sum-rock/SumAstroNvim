@@ -28,10 +28,14 @@ in
       stylua
       selene
       ruff
+      nixd
+      deadnix
+      rustup # Must run `rustup default stable`
+    ] ++ [
       config.sumAstroNvim.pythonPackage
       config.sumAstroNvim.nodePackage
-      rustup # Must run `rustup default stable`
-    ] ++ [ refresh ];
+      refresh
+    ];
     home-manager.users.${config.sumAstroNvim.username}.xdg.configFile = {
       "nvim/lua" = {
         source = ../src/lua;
