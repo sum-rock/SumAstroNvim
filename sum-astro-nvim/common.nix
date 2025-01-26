@@ -1,4 +1,4 @@
-{ pkgs, system, config, lib, home-manger, ... }:
+{ pkgs, config, home-manager, ... }:
 let
   refresh = pkgs.writeScriptBin "nvim-refresh" ''
     rm -rf ~/.config/nvim/lazy-lock.json
@@ -19,7 +19,6 @@ in
   config = {
     environment.systemPackages = with pkgs; [
       # Essential
-      # neovim
       ripgrep
       lazygit
       gdu
