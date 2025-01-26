@@ -19,6 +19,7 @@ in
   config = {
     environment.systemPackages = with pkgs; [
       # Essential
+      neovim-unwrapped
       ripgrep
       lazygit
       gdu
