@@ -5,7 +5,12 @@
     ./fonts.nix
   ];
   programs.nix-ld.libraries = with pkgs; [
-    neovim
+    neovim-unwrapped
   ];
+  programs.neovim = {
+    enable = true;
+    package = pkgs.neovim-unwrapped;
+    defaultEditor = true;
+  };
 
 }
