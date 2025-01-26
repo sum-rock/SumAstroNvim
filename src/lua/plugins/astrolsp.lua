@@ -13,12 +13,15 @@ return {
     },
     formatting = {
       format_on_save = {
-        enabled = true, 
+        enabled = true,
       },
       timeout_ms = 1000,
     },
     config = {
-      pyright = { typeCheckingMode = "basic" },
+      pyright = {
+        -- "pyproject" because monorepos are common and poetry is universal for me
+        root_dir = require("lspconfig/util").root_pattern "pyproject.toml",
+      },
     },
     autocmds = {
       lsp_document_highlight = {
