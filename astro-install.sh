@@ -9,7 +9,7 @@ function _remove() {
 }
 
 function _replace() {
-  rsync -a "$SCRIPT_DIR/src/ ~/.config/nvim"
+  rsync -a "$SCRIPT_DIR/src/" "$HOME/.config/nvim"
 }
 
 case $1 in
