@@ -49,6 +49,13 @@ return {
           end,
           desc = "Pick to close",
         },
+        ["<Leader>cc"] = {
+          function()
+            local filepath = vim.fn.expand "%"
+            vim.fn.setreg("+", filepath) -- write to clippoard
+          end,
+          desc = "Copy file path to clipboard",
+        },
       },
       t = {
         -- setting a mapping to false will disable it
