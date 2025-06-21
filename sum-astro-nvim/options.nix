@@ -6,8 +6,8 @@
       description = "The user for whom SumAstroNvim will be installed";
     };
     nerdfont = mkOption {
-      type = types.str;
-      default = "Lilex";
+      type = types.package;
+      default = pkgs.nerd-font.lilex;
       description = "The Nerd Font to be used";
     };
     nodePackage = mkOption {
