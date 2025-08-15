@@ -22,6 +22,7 @@ return {
         "ruff",
         "selene",
         "stylua",
+        "sqlfluff",
       })
     end,
   },

@@ -1,21 +1,23 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- Customize None-ls sources
 ---@type LazySpec
 return {
   "nvimtools/none-ls.nvim",
   opts = function(_, config)
-    -- config variable is the default configuration table for the setup function call
-    -- local null_ls = require "null-ls"
+    local null_ls = require "null-ls"
+    local u = require "null-ls.utils"
 
     -- Check supported formatters and linters
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+
     config.sources = {
-      -- Set a formatter
-      -- null_ls.builtins.formatting.stylua,
-      -- null_ls.builtins.formatting.prettier,
+      null_ls.builtins.diagnostics.sqlfluff.with {
+        extra_args = { "--dialect", "postgres" },
+      },
+      null_ls.builtins.formatting.sqlfluff.with {
+        extra_args = { "--dialect", "postgres" },
+      },
     }
-    return config -- return final config table
+    config.root_dir = u.root_pattern(".sqlfluff", ".git", "pyproject.toml")
+    return config
   end,
 }
