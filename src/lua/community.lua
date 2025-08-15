@@ -10,7 +10,6 @@ return {
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
   { import = "astrocommunity.pack.java" },
-  { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.clojure" },
   { import = "astrocommunity.pack.bash" },
