@@ -47,7 +47,7 @@ A very minimal installation in a typical nix flake would look as follows:
   sumAstroNvim = {
     username = "sumrock";
     nerdfont = "FiraCode";
-    nodePackage = pkgs.nodejs_20;
+    nodePackage = pkgs.nodejs_24;
     pythonPackage = pkgs.python311Full;
   };
 
