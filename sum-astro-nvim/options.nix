@@ -12,12 +12,12 @@
     };
     nodePackage = mkOption {
       type = types.package;
-      defaultText = "nodejs_20";
+      defaultText = "nodejs_24";
       description = "The NodeJS version to be used";
     };
     pythonPackage = mkOption {
       type = types.package;
-      defaultText = "python311Full";
+      defaultText = "python313Full";
       description = "The Python version to be used";
     };
   };
