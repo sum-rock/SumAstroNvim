@@ -1,6 +1,6 @@
-{ nixpkgs-unstable, ... }:
+{ neovim-pkgs, ... }:
 let
-  unstable = import nixpkgs-unstable {
+  neovim = import neovim-pkgs {
     system = "x86_64-linux";
     config = { };
   };
@@ -8,6 +8,6 @@ in
 {
   imports = [ ./common.nix ./fonts.nix ];
   config = {
-    environment.systemPackages = [ unstable.neovim-unwrapped ];
+    environment.systemPackages = [ neovim.neovim-unwrapped ];
   };
 }
