@@ -1,6 +1,10 @@
-{ neovim-pkgs, ... }:
+{ nixpkgs-neovim, nixpkgs, ... }:
 let
-  neovim = import neovim-pkgs {
+  neovim-pkgs = import nixpkgs-neovim {
+    system = "aarch64-darwin";
+    config = { };
+  };
+  pkgs = import nixpkgs {
     system = "aarch64-darwin";
     config = { };
   };
@@ -8,6 +12,6 @@ in
 {
   imports = [ ./common.nix ];
   config = {
-    environment.systemPackages = [ neovim.neovim-unwrapped ];
+    environment.systemPackages = [ neovim-pkgs.neovim-unwrapped ];
   };
 }

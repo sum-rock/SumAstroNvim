@@ -4,7 +4,7 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
-    neovim-pkgs = {
+    nixpkgs-neovim = {
       url = "github:nixos/nixpkgs/832efc09b4caf6b4569fbf9dc01bec3082a00611";
     };
     darwin = {
@@ -16,15 +16,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, neovim-pkgs, darwin, home-manager, ... }:
+  outputs = { self, nixpkgs, nixpkgs-neovim, darwin, home-manager, ... }:
     {
       nixosModules = rec {
         astroNvim = import ./sum-astro-nvim/nixos.nix;
-        defualt = astroNvim;
+        default = astroNvim;
       };
       darwinModules = rec {
         astroNvim = import ./sum-astro-nvim/macos.nix;
-        defualt = astroNvim;
+        default = astroNvim;
       };
     };
 }
